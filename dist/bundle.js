@@ -27,7 +27,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		3: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -139,7 +139,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -149,11 +149,16 @@
 "use strict";
 
 
+var _e = __webpack_require__(5);
+
+var _e2 = _interopRequireDefault(_e);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 console.log('d');
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -162,14 +167,25 @@ console.log('d');
 console.log('a');
 
 /***/ }),
+/* 2 */,
 /* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _a = __webpack_require__(2);
+console.log('e');
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _a = __webpack_require__(1);
 
 var _a2 = _interopRequireDefault(_a);
 
@@ -192,16 +208,19 @@ bPromise.then(function (r) {
 
   // Module build failed: SyntaxError: import() requires exactly one argument (7:2)
   // import('./c', './a', './e')
-  var _ = './c';
+
+  // Critical dependency: the request of a dependency is an expression
+  // var _ = './c'
+  // import(_)
   new Promise(function (resolve) {
     __webpack_require__.e/* require.ensure */(0).then((function (require) {
-      resolve(!(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+      resolve(__webpack_require__(4));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   }).then(function (c) {
-    return c.default && e.default;
+    return c.default;
   }).then(function (c) {
     return new Promise(function (resolve) {
-      __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
+      __webpack_require__.e/* require.ensure */(2).then((function (require) {
         resolve(!(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
       }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
     });

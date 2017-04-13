@@ -13,7 +13,7 @@ bPromise.then(r => {
   // var _ = './c'
   // import(_)
   import('./c')
-    .then((c) => c.default && e.default)
+    .then((c) => c.default)
     .then((c) => import(d))
     .catch(err => console.error(`Chunk loading failed, ${err}`))
   // var c = require('./c')
