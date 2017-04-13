@@ -3,9 +3,15 @@ console.log('index.js')
 import a from './a'
 const bPromise = import('./b')
 bPromise.then(r => {
+  // Module build failed: SyntaxError: 'import' and 'export' may only appear at the top level (6:2)
   // import c from './c'
-  import('./c', './a')
-    .then(module => module.default)
+
+  // Module build failed: SyntaxError: import() requires exactly one argument (7:2)
+  // import('./c', './a', './e')
+
+  import('./c')
+    .then((c) => c.default && e.default)
+    .then((c) => import(d))
     .catch(err => console.error(`Chunk loading failed, ${err}`))
   // var c = require('./c')
   var d = require('./d')
