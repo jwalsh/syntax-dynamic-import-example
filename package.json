@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/http-server -p 8122 && open http://localhost:8122/dist",
     "compile": "./node_modules/.bin/webpack --display-chunks --display-modules --display-origins --display-entrypoints"
   },
   "author": "",

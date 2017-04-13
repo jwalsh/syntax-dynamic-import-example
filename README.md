@@ -8,8 +8,7 @@ npm install
 
 ```
 npm run compile 
-npm run serve 
-open http://localhost:8000/dist
+npm start 
 ```
 
 # Notes 
