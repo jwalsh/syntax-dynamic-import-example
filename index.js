@@ -9,6 +9,9 @@ bPromise.then(r => {
   // Module build failed: SyntaxError: import() requires exactly one argument (7:2)
   // import('./c', './a', './e')
 
+  // Critical dependency: the request of a dependency is an expression
+  // var _ = './c'
+  // import(_)
   import('./c')
     .then((c) => c.default && e.default)
     .then((c) => import(d))
