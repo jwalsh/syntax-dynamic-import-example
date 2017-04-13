@@ -27,7 +27,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		1: 0
+/******/ 		2: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -144,17 +144,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('a')
+"use strict";
 
+
+console.log('d');
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('b')
+"use strict";
 
+
+console.log('a');
 
 /***/ }),
 /* 2 */,
@@ -162,15 +166,40 @@ console.log('b')
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-console.log('index.js')
+"use strict";
 
-var a = __webpack_require__(0)
-var b = __webpack_require__(1)
-__webpack_require__.e/* require.ensure */(0).then((function() {
-  var a = __webpack_require__(0)
-  var d = __webpack_require__(3)
-}).bind(null, __webpack_require__)).catch(__webpack_require__.oe)
 
+var _a = __webpack_require__(1);
+
+var _a2 = _interopRequireDefault(_a);
+
+var _d = __webpack_require__(0);
+
+var _d2 = _interopRequireDefault(_d);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log('index.js');
+
+var bPromise = new Promise(function (resolve) {
+  __webpack_require__.e/* require.ensure */(1).then((function (require) {
+    resolve(__webpack_require__(2));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+});
+bPromise.then(function (r) {
+  // import c from './c'
+  new Promise(function (resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function (require) {
+      resolve(__webpack_require__(3));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }).then(function (module) {
+    return module.default;
+  }).catch(function (err) {
+    return console.error('Chunk loading failed, ' + err);
+  });
+  // var c = require('./c')
+  var d = __webpack_require__(0);
+});
 
 /***/ })
 /******/ ]);
