@@ -27,7 +27,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		3: 0
+/******/ 		4: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -198,7 +198,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 console.log('index.js');
 
 var bPromise = new Promise(function (resolve) {
-  __webpack_require__.e/* require.ensure */(1).then((function (require) {
+  __webpack_require__.e/* require.ensure */(2).then((function (require) {
     resolve(__webpack_require__(3));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 });
@@ -213,14 +213,14 @@ bPromise.then(function (r) {
   // var _ = './c'
   // import(_)
   new Promise(function (resolve) {
-    __webpack_require__.e/* require.ensure */(0).then((function (require) {
+    __webpack_require__.e/* require.ensure */(1).then((function (require) {
       resolve(__webpack_require__(4));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   }).then(function (c) {
     return c.default;
   }).then(function (c) {
     return new Promise(function (resolve) {
-      __webpack_require__.e/* require.ensure */(2).then((function (require) {
+      __webpack_require__.e/* require.ensure */(3).then((function (require) {
         resolve(!(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
       }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
     });
@@ -230,6 +230,49 @@ bPromise.then(function (r) {
   // var c = require('./c')
   var d = __webpack_require__(0);
 });
+
+
+var main = document.querySelector("main");
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  var _loop = function _loop() {
+    var link = _step.value;
+
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      new Promise(function (resolve) {
+        __webpack_require__.e/* require.ensure */(0).then((function (require) {
+          resolve(__webpack_require__(7)("./" + link.dataset.entryModule + '.js'));
+        }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+      }).then(function (module) {
+        module.loadPageInto(main);
+      }).catch(function (err) {
+        main.textContent = err.message;
+      });
+    });
+  };
+
+  for (var _iterator = document.querySelectorAll("nav > a")[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    _loop();
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
+}
 
 /***/ })
 /******/ ]);

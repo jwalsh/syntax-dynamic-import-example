@@ -1,15 +1,12 @@
 webpackJsonp([2],{
 
-/***/ 2:
-/***/ (function(module, exports) {
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
 
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 2;
+"use strict";
+
+
+console.log('b');
 
 /***/ })
 

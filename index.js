@@ -20,3 +20,19 @@ bPromise.then(r => {
   var d = require('./d')
 })
 import d from './d'
+
+
+const main = document.querySelector("main");
+for (const link of document.querySelectorAll("nav > a")) {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    import(`./section-modules/${link.dataset.entryModule}.js`)
+      .then(module => {
+        module.loadPageInto(main);
+      })
+      .catch(err => {
+        main.textContent = err.message;
+      });
+  });
+}
